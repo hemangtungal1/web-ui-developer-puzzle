@@ -34,7 +34,7 @@ describe('ToReadEffects', () => {
 
       effects.loadReadingList$.subscribe(action => {
         expect(action).toEqual(
-          ReadingListActions.loadReadingListSuccess({ list: [] })
+          ReadingListActions.loadReadingListSucceeded({ list: [] })
         );
         done();
       });
