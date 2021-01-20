@@ -45,3 +45,12 @@
   font-size: 1rem;
   color: $gray60;
 }
+
+.finished-text,
+.mark-finish-circle {
+  color: $green;
+}
+
+.finished-text {
+  margin-top: $spacing-3xs;
+}

@@ -40,8 +40,9 @@
               color="primary"
               (click)="addBookToReadingList(book)"
               [disabled]="book.isAdded"
+              data-testing="book-add-button"
+              [innerText]="book.finished ? 'Finished' : 'Want to Read'"
             >
-              Want to Read
             </button>
           </div>
         </div>
