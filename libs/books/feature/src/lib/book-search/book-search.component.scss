@@ -12,6 +12,10 @@ form {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 100%;
+  }
 }
 
 .book {
@@ -20,6 +24,12 @@ form {
   margin: 2px;
   padding: $spacing-xxs;
   background-color: $gray10;
+
+  @media only screen and (max-width: 600px) {
+    padding: $spacing-xs;
+    padding-bottom: $spacing-xs;
+    margin-bottom: $spacing-xxs;
+  }
 }
 
 .book--title {
@@ -68,5 +78,13 @@ form {
   justify-content: center;
   min-height: 50vh;
   font-size: 1.5rem;
-  color: $gray40;
+  color: $gray60;
+}
+
+.search-example {
+  padding-left: 0;
+  cursor: pointer;
+  color: $pink-accent;
+  background-color: transparent;
+  border: transparent;
 }

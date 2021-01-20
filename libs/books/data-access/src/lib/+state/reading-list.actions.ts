@@ -3,11 +3,11 @@ import { Book, ReadingListItem } from '@tmo/shared/models';
 
 export const init = createAction('[Reading List] Initialize');
 
-export const loadReadingListSuccess = createAction(
+export const loadReadingListSucceeded = createAction(
   '[Reading List API] Load list success',
   props<{ list: ReadingListItem[] }>()
 );
-export const loadReadingListError = createAction(
+export const loadReadingListFailed = createAction(
   '[Reading List API] Load list error',
   props<{ error: string }>()
 );
@@ -17,14 +17,13 @@ export const addToReadingList = createAction(
   props<{ book: Book }>()
 );
 
-export const failedAddToReadingList = createAction(
+export const addToReadingListFailed = createAction(
   '[Reading List API] Failed add to list',
   props<{ book: Book }>()
 );
 
-export const confirmedAddToReadingList = createAction(
-  '[Reading List API] Confirmed add to list',
-  props<{ book: Book }>()
+export const addToReadingListSucceeded = createAction(
+  '[Reading List API] Confirmed add to list'
 );
 
 export const removeFromReadingList = createAction(
@@ -32,12 +31,11 @@ export const removeFromReadingList = createAction(
   props<{ item: ReadingListItem }>()
 );
 
-export const failedRemoveFromReadingList = createAction(
+export const removeFromReadingListFailed = createAction(
   '[Reading List API] Failed remove from list',
   props<{ item: ReadingListItem }>()
 );
 
-export const confirmedRemoveFromReadingList = createAction(
-  '[Reading List API] Confirmed remove from list',
-  props<{ item: ReadingListItem }>()
+export const removeFromReadingListSucceeded = createAction(
+  '[Reading List API] Confirmed remove from list'
 );
