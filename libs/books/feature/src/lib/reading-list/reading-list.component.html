@@ -1,5 +1,7 @@
 <ng-container *ngIf="(readingList$ | async).length > 0; else empty">
+  <!------ Reading list item ------>
   <section class="reading-list-item" *ngFor="let book of readingList$ | async">
+    <!-- Book details start -->
     <div>
       <img
         class="reading-list-item--cover"
@@ -12,19 +14,42 @@
       <div class="reading-list-item--details--author">
         {{ book.authors.join(',') }}
       </div>
+      <div class="finished-text" *ngIf="book.finished">
+        Finished on: {{ book.finishedDate | date }}
+      </div>
     </div>
+    <!------ Book details end ------>
+    <!------ Finish Button ------>
+    <div *ngIf="!book.finished">
+      <button
+        mat-icon-button
+        (click)="markAsFinished(book)"
+        [attr.aria-label]="'Mark ' + book.title + ' as finished'"
+        [matTooltip]="'Mark ' + book.title + ' as finished'" 
+      >
+        <mat-icon
+          class="mark-finish-circle"
+        >
+          check_circle
+        </mat-icon>
+      </button>
+    </div>
+    <!------ Remove Button ------>
     <div>
       <button
         mat-icon-button
         color="warn"
         [attr.aria-label]="'Remove ' + book.title + ' from reading list'"
+        [matTooltip]="'Remove ' + book.title + ' from reading list'"
         (click)="removeFromReadingList(book)"
+        data-testing="book-remove-button"
       >
         <mat-icon>remove_circle</mat-icon>
       </button>
     </div>
   </section>
 </ng-container>
+<!------ Empty Template ------>
 <ng-template #empty>
   <p class="empty">You haven't added any books to your reading list yet.</p>
 </ng-template>
